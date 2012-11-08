@@ -179,6 +179,10 @@ function handler(event) {
 
       $this.scroll(function(e){
 
+          var wh = $(window).height()
+          var ret=false;
+          var rettop=false;
+
           var scrollOffset = $('body').scrollTop()-$(settings.current).offset().top 
 
           if(regularScroll && scrollOffset + wh > $(settings.current)[0].scrollHeight){
