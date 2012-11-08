@@ -281,7 +281,8 @@ function handler(event) {
             }
           }
           else
-            regularScroll=true;
+            if(!$(settings.current).height()>wh)
+              regularScroll=true;
         }
         if(deltaY<20){
           if(scrollOffset <= 0){
@@ -299,7 +300,8 @@ function handler(event) {
             }
           }
           else
-            regularScroll=true;
+            if(!$(settings.current).height()>wh)
+              regularScroll=true;
         }
 
 
