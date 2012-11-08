@@ -175,6 +175,38 @@ function handler(event) {
         touchStartX = touch.originalEvent.targetTouches[0].pageX
         touchStartY = touch.originalEvent.targetTouches[0].pageY
       })
+
+
+      $this.scroll(function(e){
+
+          var scrollOffset = $('body').scrollTop()-$(settings.current).offset().top 
+
+          if(regularScroll && deltaY>20 && scrollOffset + wh > $(settings.current)[0].scrollHeight){
+              ret=true
+          }
+          else if (regularScroll && deltaY<-20 && scrollOffset < 0){
+              rettop=true;
+          }      
+
+          if(ret && regularScroll){
+          
+            dist = -scrollOffset + settings.current[0].scrollHeight - wh
+            
+            var target = $this.scrollTop() - Math.abs(dist)
+            $this.stop().animate({scrollTop : target}, 300)
+            regularScroll=false;
+
+          }
+          if(rettop && regularScroll){
+            // $this.stop().scrollTo(settings.current, 300)
+            settings.callback($this,settings.current, 300)
+            regularScroll=false;
+          }  
+
+
+
+
+      })
       
       $this.bind('touchmove', function(touch){
 
