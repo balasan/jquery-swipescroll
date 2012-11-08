@@ -185,6 +185,8 @@ function handler(event) {
           var ret=false;
           var rettop=false;
 
+          $this.css({'webkitOverflowScrolling':'auto'})
+
           var scrollOffset = $('body').scrollTop()-$(settings.current).offset().top 
 
           console.log(scrollOffset)
