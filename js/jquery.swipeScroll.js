@@ -195,7 +195,7 @@ function handler(event) {
           var rettop=false;
 
 
-          var scrollOffset = $('body').scrollTop()-$(settings.current).offset().top 
+          var scrollOffset = $this.scrollTop()-$(settings.current).offset().top 
 
           console.log(scrollOffset)
 
