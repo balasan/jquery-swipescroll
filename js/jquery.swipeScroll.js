@@ -180,6 +180,15 @@ function handler(event) {
           scrollOffset = $('body').scrollTop()-$(settings.current).offset().top 
 
 
+
+          if(regularScroll && deltaY<0 && scrollOffset + wh > $(settings.current)[0].scrollHeight){
+              ret=true
+          }
+          else if (regularScroll && deltaY>0 && scrollOffset < 0){
+              rettop=true;
+          }
+        }
+
         deltaX = touchStartX - touch.originalEvent.targetTouches[0].pageX;
         deltaY = touchStartY - touch.originalEvent.targetTouches[0].pageY;
         
