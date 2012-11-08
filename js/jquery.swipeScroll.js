@@ -249,20 +249,20 @@ function handler(event) {
         if(!regularScroll)
           touch.preventDefault()
 
-        // if(ret && regularScroll){
+        if(ret && regularScroll){
         
-        //   dist = -scrollOffset + settings.current[0].scrollHeight - wh
+          dist = -scrollOffset + settings.current[0].scrollHeight - wh
           
-        //   var target = $this.scrollTop() - Math.abs(dist)
-        //   $this.stop().animate({scrollTop : target}, 300)
-        //   regularScroll=false;
+          var target = $this.scrollTop() - Math.abs(dist)
+          $this.stop().animate({scrollTop : target}, 300)
+          regularScroll=false;
 
-        // }
-        // if(rettop && regularScroll){
-        //   // $this.stop().scrollTo(settings.current, 300)
-        //   settings.callback($this,settings.current, 300)
-        //   regularScroll=false;
-        // }
+        }
+        if(rettop && regularScroll){
+          // $this.stop().scrollTo(settings.current, 300)
+          settings.callback($this,settings.current, 300)
+          regularScroll=false;
+        }
        
       
       })
