@@ -10,7 +10,7 @@
       }
       body {
         height:100%;
-        /*overflow:auto;*/
+        overflow:hidden;
         margin:0px;
         background: #b9e2ea; /* Old browsers */
         /* IE9 SVG, needs conditional override of 'filter' to 'none' */
@@ -28,14 +28,14 @@
       #swipeContainer {
         height:100%;
         overflow:auto;
+        overflow: scroll;
+        -webkit-overflow-scrolling: touch;
       }
 
       .swipeSection{
         position:relative;
         font-size: 30px;
         text-align: center;
-        overflow: scroll;
-        -webkit-overflow-scrolling: touch;
         height:100%;
         /*overflow:auto;*/
       }
