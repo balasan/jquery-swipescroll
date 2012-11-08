@@ -173,6 +173,12 @@ function handler(event) {
       
       $this.bind('touchmove', function(touch){
       
+        var scrollOffset
+        if($(settings.current).css('overflow') == 'auto' || $(settings.current).css('overflow') == 'scroll')
+          scrollOffset = $(settings.current).scrollTop()
+        else {        
+          scrollOffset = $('body').scrollTop()-$(settings.current).offset().top 
+
 
         deltaX = touchStartX - touch.originalEvent.targetTouches[0].pageX;
         deltaY = touchStartY - touch.originalEvent.targetTouches[0].pageY;
