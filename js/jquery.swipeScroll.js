@@ -174,6 +174,7 @@ function handler(event) {
       var deltaX;
       var deltaY;
 
+      document.addEventListener('touchmove', function(e){ e.preventDefault(); });
 
       var myScroll = new iScroll($(this).attr('id'));
 
