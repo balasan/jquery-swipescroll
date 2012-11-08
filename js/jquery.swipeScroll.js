@@ -176,7 +176,7 @@ function handler(event) {
 
       document.addEventListener('touchmove', function(e){ e.preventDefault(); });
 
-      var myScroll = new iScroll($(this).attr('id'));
+      var myScroll = new iScroll($(this).attr('id'), {snap:true});
 
 
 
