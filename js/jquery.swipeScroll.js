@@ -164,6 +164,11 @@ function handler(event) {
         })
       }
 
+      var okToSwipe = true;
+      var touchStartX;
+      var touchStartY;
+      var deltaX;
+      var deltaY;
 
       //TOUCH EVENTS
       $this.bind('touchstart', function(touch){
