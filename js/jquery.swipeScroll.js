@@ -179,6 +179,8 @@ function handler(event) {
 
       $this.scroll(function(e){
 
+          console.log('scrolling')
+
           var wh = $(window).height()
           var ret=false;
           var rettop=false;
