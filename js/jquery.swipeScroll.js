@@ -177,14 +177,16 @@ function handler(event) {
       })
       
       $this.bind('touchmove', function(touch){
+
+        deltaX = touchStartX - touch.originalEvent.targetTouches[0].pageX;
+        deltaY = touchStartY - touch.originalEvent.targetTouches[0].pageY;
+        
       
         var scrollOffset
         if($(settings.current).css('overflow') == 'auto' || $(settings.current).css('overflow') == 'scroll')
           scrollOffset = $(settings.current).scrollTop()
         else {        
           scrollOffset = $('body').scrollTop()-$(settings.current).offset().top 
-
-
 
           if(regularScroll && deltaY<0 && scrollOffset + wh > $(settings.current)[0].scrollHeight){
               ret=true
@@ -194,9 +196,7 @@ function handler(event) {
           }
         }
 
-        deltaX = touchStartX - touch.originalEvent.targetTouches[0].pageX;
-        deltaY = touchStartY - touch.originalEvent.targetTouches[0].pageY;
-        
+
         if(!okToSwipe){
           touch.preventDefault()
           return;
@@ -241,6 +241,21 @@ function handler(event) {
 
         if(!regularScroll)
           touch.preventDefault()
+
+        if(ret && regularScroll){
+        
+          dist = -scrollOffset + settings.current[0].scrollHeight - wh
+          
+          var target = $this.scrollTop() - Math.abs(dist)
+          $this.stop().animate({scrollTop : target}, 300)
+          regularScroll=false;
+
+        }
+        if(rettop && regularScroll){
+          // $this.stop().scrollTo(settings.current, 300)
+          settings.callback($this,settings.current, 300)
+          regularScroll=false;
+        }
        
       
       })
