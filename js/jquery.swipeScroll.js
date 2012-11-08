@@ -201,15 +201,15 @@ function handler(event) {
 
           if(regularScroll && scrollOffset + wh > $(settings.current)[0].scrollHeight){
               ret=true
-              $this.css({'webkitOverflowScrolling':'auto'})
+              // $this.css({'webkitOverflowScrolling':'auto'})
 
           }
           else if (regularScroll && scrollOffset < 0){
               rettop=true;
-              $this.css({'webkitOverflowScrolling':'auto'})
+              // $this.css({'webkitOverflowScrolling':'auto'})
           }
-          else
-              $this.css({'webkitOverflowScrolling':'touch'})
+          // else
+              // $this.css({'webkitOverflowScrolling':'touch'})
       
 
           if(ret && regularScroll){
