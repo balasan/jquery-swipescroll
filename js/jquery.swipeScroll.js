@@ -208,37 +208,41 @@ function handler(event) {
         regularScroll = true;
         if(deltaY>20){
           if( scrollOffset + wh >= settings.current[0].scrollHeight){
-            if($(settings.current).next()[0]!=undefined){
+
+            if(settings.current.next(settings.selector)[0]!=undefined){
               scrolling=true;
 
-              settings.current = '#'+ $(settings.current).next().attr('id')
-              if( settings.urls[settings.current]!=undefined){
-                History.pushState(null, null, settings.urls[settings.current]);
-              }     
+              settings.current = $(settings.current).next(settings.selector)
+              if(settings.urls!=null && settings.urls[settings.current.attr('id')]!=undefined)
+                  History.pushState(null, null, settings.urls[settings.current.attr('id')]);
+              settings.callback($this, settings.current) 
+              rettop=false;
+              ret=false;  
               regularScroll=false;
-              okToSwipe=false       
-          
+ 
             }
           }
           else
             regularScroll=true;
         }
-        else if(deltaY<-20){
+        if(deltaY<20){
           if(scrollOffset <= 0){
-            if($(settings.current).prev()[0]!=undefined){
+            if(settings.current.prev(settings.selector)[0]!=undefined){
               scrolling=true;
 
-              settings.current = '#' + $(settings.current).prev().attr('id')
-              if( settings.urls[settings.current]!=undefined){
-                History.pushState(null, null, settings.urls[settings.current]);
-              } 
-            
+              settings.current = $(settings.current).prev(settings.selector)
+              if(settings.urls!=null && settings.urls[settings.current.attr('id')]!=undefined)
+                History.pushState(null, null, settings.urls[settings.current.attr('id')]);
+              settings.callback($this, settings.current)      
+              rettop=false;
+              ret=false; 
               regularScroll=false;
-              okToSwipe=false;
+
             }
           }
           else
-            regularScroll=false;
+            regularScroll=true;
+
         }
 
 
