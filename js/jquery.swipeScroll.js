@@ -187,6 +187,8 @@ function handler(event) {
 
           var scrollOffset = $('body').scrollTop()-$(settings.current).offset().top 
 
+          console.log(scrollOffset)
+
           if(regularScroll && scrollOffset + wh > $(settings.current)[0].scrollHeight){
               ret=true
               $this.css({'webkitOverflowScrolling':'auto'})
