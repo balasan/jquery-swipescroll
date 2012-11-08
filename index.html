@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>swipe scroll
+    </title>
+
+    <style type="text/css">
+      html {
+        height:100%;
+      }
+      body {
+        height:100%;
+        overflow:auto;
+        margin:0px;
+        background: #b9e2ea; /* Old browsers */
+        /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+        background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2I5ZTJlYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjM5JSIgc3RvcC1jb2xvcj0iI2VhOWRlYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjY0JSIgc3RvcC1jb2xvcj0iI2VkZjJjNiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNiOWUyZWEiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+        background: -moz-linear-gradient(top,  #b9e2ea 0%, #ea9dea 39%, #edf2c6 64%, #b9e2ea 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b9e2ea), color-stop(39%,#ea9dea), color-stop(64%,#edf2c6), color-stop(100%,#b9e2ea)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top,  #b9e2ea 0%,#ea9dea 39%,#edf2c6 64%,#b9e2ea 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top,  #b9e2ea 0%,#ea9dea 39%,#edf2c6 64%,#b9e2ea 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top,  #b9e2ea 0%,#ea9dea 39%,#edf2c6 64%,#b9e2ea 100%); /* IE10+ */
+        background: linear-gradient(to bottom,  #b9e2ea 0%,#ea9dea 39%,#edf2c6 64%,#b9e2ea 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b9e2ea', endColorstr='#b9e2ea',GradientType=0 ); /* IE6-8 */
+
+
+      }
+      #swipeContainer {
+        height:100%;
+        overflow:auto;
+      }
+
+      .swipeSection{
+        position:relative;
+        font-size: 30px;
+        text-align: center;
+
+        height:100%;
+        /*overflow:auto;*/
+      }
+
+      #one {
+        height:100%;
+      }
+      #two {
+        height:200%;
+      }
+
+      #three {
+        height:50%;
+      }
+      #four {
+        height:100%;
+      }
+      #five {
+        height:auto;
+        overflow:auto;
+      }
+    </style>
+
+    <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.min.js"></script>
+
+    <script type="text/javascript" src="js/jquery.swipeScroll.js"></script>
+
+
+  </head>
+
+
+  <body>
+
+    <!-- <div id="swipeContainer"> -->
+
+      <div id="one" class="swipeSection">
+        <div>
+          100% height div
+        </div>
+      </div>
+
+      <div id="two" class="swipeSection">
+        <div>
+        200% height div
+        </div>
+      </div>
+
+      <div id="three" class="swipeSection">
+        <div>
+        50% height div
+        </div>
+      </div>
+
+      <div id="four" class="swipeSection">
+        <div>
+        100% height div
+        </div>
+      </div>
+
+      <div id="five" class="swipeSection">
+        <div>
+        auto height div
+        </div>
+      </div>
+
+    <!-- </div> -->
+
+  </body>
+
+
+  <script type=text/javascript>
+
+    $(document).ready(function(){
+        $('body').swipeScroll({easing: 'easeInOutCubic'})
+
+        // $('#swipeContainer').swipeScroll({easing: 'easeInOutCubic'})
+
+    })
+
+  </script>
+
+
+</html> 
