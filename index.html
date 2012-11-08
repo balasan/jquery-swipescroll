@@ -10,7 +10,7 @@
       }
       body {
         height:100%;
-        overflow:auto;
+        /*overflow:auto;*/
         margin:0px;
         background: #b9e2ea; /* Old browsers */
         /* IE9 SVG, needs conditional override of 'filter' to 'none' */
@@ -69,7 +69,7 @@
 
   <body>
 
-    <!-- <div id="swipeContainer"> -->
+    <div id="swipeContainer">
 
       <div id="one" class="swipeSection">
         <div>
@@ -101,7 +101,7 @@
         </div>
       </div>
 
-    <!-- </div> -->
+    </div>
 
   </body>
 
@@ -109,9 +109,9 @@
   <script type=text/javascript>
 
     $(document).ready(function(){
-        $('body').swipeScroll({easing: 'easeInOutCubic'})
+        // $('body').swipeScroll({easing: 'easeInOutCubic'})
 
-        // $('#swipeContainer').swipeScroll({easing: 'easeInOutCubic'})
+        $('#swipeContainer').swipeScroll({easing: 'easeInOutCubic'})
 
     })
 
