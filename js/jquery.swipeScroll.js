@@ -181,7 +181,10 @@ function handler(event) {
         deltaX = touchStartX - touch.originalEvent.targetTouches[0].pageX;
         deltaY = touchStartY - touch.originalEvent.targetTouches[0].pageY;
         
-      
+        wh = $(window).height()
+        var ret=false;
+        var rettop=false;
+
         var scrollOffset
         if($(settings.current).css('overflow') == 'auto' || $(settings.current).css('overflow') == 'scroll')
           scrollOffset = $(settings.current).scrollTop()
