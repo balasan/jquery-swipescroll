@@ -194,8 +194,10 @@ function handler(event) {
           var ret=false;
           var rettop=false;
 
+          if(!$(settings.current).height()>wh)
+            regularScroll = false;
 
-          var scrollOffset = $this.scrollTop()-$(settings.current).offset().top 
+          var scrollOffset = $('body').scrollTop()-$(settings.current).offset().top 
 
           console.log(scrollOffset)
 
