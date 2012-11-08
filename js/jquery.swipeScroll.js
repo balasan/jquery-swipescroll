@@ -177,7 +177,7 @@ function handler(event) {
       })
 
 
-      $this.scroll(function(e){
+      var checkInertia = function(){
 
           console.log('scrolling')
 
@@ -209,10 +209,10 @@ function handler(event) {
             regularScroll=false;
           }  
 
+          if(regularScroll)
+            setTimeout(checkInertia, 300)
+      }
 
-
-
-      })
       
       $this.bind('touchmove', function(touch){
 
@@ -280,12 +280,13 @@ function handler(event) {
           }
           else
             regularScroll=true;
-
         }
 
 
         if(!regularScroll)
           touch.preventDefault()
+        else 
+          checkInertia()
 
         if(ret && regularScroll){
         
