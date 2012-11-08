@@ -181,10 +181,10 @@ function handler(event) {
 
           var scrollOffset = $('body').scrollTop()-$(settings.current).offset().top 
 
-          if(regularScroll && deltaY>20 && scrollOffset + wh > $(settings.current)[0].scrollHeight){
+          if(regularScroll && scrollOffset + wh > $(settings.current)[0].scrollHeight){
               ret=true
           }
-          else if (regularScroll && deltaY<-20 && scrollOffset < 0){
+          else if (regularScroll && scrollOffset < 0){
               rettop=true;
           }      
 
