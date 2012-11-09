@@ -189,7 +189,7 @@ function handler(event) {
 
 
 
-      TOUCH EVENTS
+      // TOUCH EVENTS
       $this.bind('touchstart', function(touch){
         touchStartX = touch.originalEvent.targetTouches[0].pageX
         touchStartY = touch.originalEvent.targetTouches[0].pageY
