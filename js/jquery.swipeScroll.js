@@ -248,6 +248,12 @@ function handler(event) {
 
         deltaX = touchStartX - touch.originalEvent.targetTouches[0].pageX;
         deltaY = touchStartY - touch.originalEvent.targetTouches[0].pageY;
+
+
+        if(!okToSwipe){
+          touch.preventDefault()
+          return;
+        }
         
         var wh = $(window).height()
         var ret=false;
@@ -268,10 +274,6 @@ function handler(event) {
         }
 
 
-        if(!okToSwipe){
-          touch.preventDefault()
-          return;
-        }
         
         regularScroll = true;
         if(deltaY>20){
@@ -287,6 +289,8 @@ function handler(event) {
               rettop=false;
               ret=false;  
               regularScroll=false;
+              okToSwipe = false;
+
  
             }
           }
@@ -306,6 +310,7 @@ function handler(event) {
               rettop=false;
               ret=false; 
               regularScroll=false;
+              okToSwipe = false;
 
             }
           }
