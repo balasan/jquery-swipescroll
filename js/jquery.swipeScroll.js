@@ -298,7 +298,7 @@ function handler(event) {
             if(!$(settings.current).height()>wh)
               regularScroll=true;
         }
-        if(deltaY<20){
+        if(deltaY<-20){
           if(scrollOffset <= 0){
             if(settings.current.prev(settings.selector)[0]!=undefined){
               scrolling=true;
