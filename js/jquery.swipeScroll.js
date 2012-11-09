@@ -340,6 +340,7 @@ function handler(event) {
       
       $this.bind('touchend', function(touch){
         okToSwipe = true;
+        console.log('touchEnded')
       })
       
 
