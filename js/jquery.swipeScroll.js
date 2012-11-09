@@ -177,15 +177,16 @@ function handler(event) {
       // document.addEventListener('touchmove', function(e){ e.preventDefault(); });
 
       // var totalH = 0;
-      // $(settings.selector).css({'minHeight': $(window).height()}).each(function(){
+      $(settings.selector).each(function(){
+
+        new iScroll($(this).attr('id'));
 
       //   totalH += $(this).height()
 
-      // })
+       })
       // $(this).css({'height': totalH})
 
 
-      // var myScroll = new iScroll($(this).attr('id'), {snap:true});
 
 
 
