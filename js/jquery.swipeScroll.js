@@ -174,29 +174,26 @@ function handler(event) {
       var deltaX;
       var deltaY;
 
-      document.addEventListener('touchmove', function(e){ e.preventDefault(); });
+      // document.addEventListener('touchmove', function(e){ e.preventDefault(); });
 
-      var totalH = 0;
-      $(settings.selector).css({'minHeight': $(window).height()}).each(function(){
+      // var totalH = 0;
+      // $(settings.selector).css({'minHeight': $(window).height()}).each(function(){
 
-        totalH += $(this).height()
+      //   totalH += $(this).height()
 
-      })
-
-
-
-      $(this).css({'height': totalH})
-
-
-      var myScroll = new iScroll($(this).attr('id'), {snap:true});
-
-
-
-      //TOUCH EVENTS
-      // $this.bind('touchstart', function(touch){
-      //   touchStartX = touch.originalEvent.targetTouches[0].pageX
-      //   touchStartY = touch.originalEvent.targetTouches[0].pageY
       // })
+      // $(this).css({'height': totalH})
+
+
+      // var myScroll = new iScroll($(this).attr('id'), {snap:true});
+
+
+
+      TOUCH EVENTS
+      $this.bind('touchstart', function(touch){
+        touchStartX = touch.originalEvent.targetTouches[0].pageX
+        touchStartY = touch.originalEvent.targetTouches[0].pageY
+      })
 
 
       // var checkInertia = function(){
@@ -247,103 +244,103 @@ function handler(event) {
       // }
 
       
-      // $this.bind('touchmove', function(touch){
+      $this.bind('touchmove', function(touch){
 
-      //   deltaX = touchStartX - touch.originalEvent.targetTouches[0].pageX;
-      //   deltaY = touchStartY - touch.originalEvent.targetTouches[0].pageY;
+        deltaX = touchStartX - touch.originalEvent.targetTouches[0].pageX;
+        deltaY = touchStartY - touch.originalEvent.targetTouches[0].pageY;
         
-      //   var wh = $(window).height()
-      //   var ret=false;
-      //   var rettop=false;
+        var wh = $(window).height()
+        var ret=false;
+        var rettop=false;
 
-      //   var scrollOffset
-      //   if($(settings.current).css('overflow') == 'auto' || $(settings.current).css('overflow') == 'scroll')
-      //     scrollOffset = $(settings.current).scrollTop()
-      //   else {        
-      //     scrollOffset = $('body').scrollTop()-$(settings.current).offset().top 
+        var scrollOffset
+        if($(settings.current).css('overflow') == 'auto' || $(settings.current).css('overflow') == 'scroll')
+          scrollOffset = $(settings.current).scrollTop()
+        else {        
+          scrollOffset = $('body').scrollTop()-$(settings.current).offset().top 
 
-      //     if(regularScroll && deltaY>20 && scrollOffset + wh > $(settings.current)[0].scrollHeight){
-      //         ret=true
-      //     }
-      //     else if (regularScroll && deltaY<-20 && scrollOffset < 0){
-      //         rettop=true;
-      //     }
-      //   }
+          if(regularScroll && deltaY>20 && scrollOffset + wh > $(settings.current)[0].scrollHeight){
+              ret=true
+          }
+          else if (regularScroll && deltaY<-20 && scrollOffset < 0){
+              rettop=true;
+          }
+        }
 
 
-      //   if(!okToSwipe){
-      //     touch.preventDefault()
-      //     return;
-      //   }
+        if(!okToSwipe){
+          touch.preventDefault()
+          return;
+        }
         
-      //   regularScroll = true;
-      //   if(deltaY>20){
-      //     if( scrollOffset + wh >= settings.current[0].scrollHeight){
+        regularScroll = true;
+        if(deltaY>20){
+          if( scrollOffset + wh >= settings.current[0].scrollHeight){
 
-      //       if(settings.current.next(settings.selector)[0]!=undefined){
-      //         scrolling=true;
+            if(settings.current.next(settings.selector)[0]!=undefined){
+              scrolling=true;
 
-      //         settings.current = $(settings.current).next(settings.selector)
-      //         if(settings.urls!=null && settings.urls[settings.current.attr('id')]!=undefined)
-      //             History.pushState(null, null, settings.urls[settings.current.attr('id')]);
-      //         settings.callback($this, settings.current) 
-      //         rettop=false;
-      //         ret=false;  
-      //         regularScroll=false;
+              settings.current = $(settings.current).next(settings.selector)
+              if(settings.urls!=null && settings.urls[settings.current.attr('id')]!=undefined)
+                  History.pushState(null, null, settings.urls[settings.current.attr('id')]);
+              settings.callback($this, settings.current) 
+              rettop=false;
+              ret=false;  
+              regularScroll=false;
  
-      //       }
-      //     }
-      //     else
-      //       if(!$(settings.current).height()>wh)
-      //         regularScroll=true;
-      //   }
-      //   if(deltaY<20){
-      //     if(scrollOffset <= 0){
-      //       if(settings.current.prev(settings.selector)[0]!=undefined){
-      //         scrolling=true;
+            }
+          }
+          else
+            if(!$(settings.current).height()>wh)
+              regularScroll=true;
+        }
+        if(deltaY<20){
+          if(scrollOffset <= 0){
+            if(settings.current.prev(settings.selector)[0]!=undefined){
+              scrolling=true;
 
-      //         settings.current = $(settings.current).prev(settings.selector)
-      //         if(settings.urls!=null && settings.urls[settings.current.attr('id')]!=undefined)
-      //           History.pushState(null, null, settings.urls[settings.current.attr('id')]);
-      //         settings.callback($this, settings.current)      
-      //         rettop=false;
-      //         ret=false; 
-      //         regularScroll=false;
+              settings.current = $(settings.current).prev(settings.selector)
+              if(settings.urls!=null && settings.urls[settings.current.attr('id')]!=undefined)
+                History.pushState(null, null, settings.urls[settings.current.attr('id')]);
+              settings.callback($this, settings.current)      
+              rettop=false;
+              ret=false; 
+              regularScroll=false;
 
-      //       }
-      //     }
-      //     else
-      //       if(!$(settings.current).height()>wh)
-      //         regularScroll=true;
-      //   }
+            }
+          }
+          else
+            if(!$(settings.current).height()>wh)
+              regularScroll=true;
+        }
 
 
-      //   if(!regularScroll)
-      //     touch.preventDefault()
-      //   else 
-      //     checkInertia()
+        if(!regularScroll)
+          touch.preventDefault()
+        // else 
+          // checkInertia()
 
-      //   if(ret && regularScroll){
+        if(ret && regularScroll){
         
-      //     dist = -scrollOffset + settings.current[0].scrollHeight - wh
+          dist = -scrollOffset + settings.current[0].scrollHeight - wh
           
-      //     var target = $this.scrollTop() - Math.abs(dist)
-      //     $this.stop().animate({scrollTop : target}, 300)
-      //     regularScroll=false;
+          var target = $this.scrollTop() - Math.abs(dist)
+          $this.stop().animate({scrollTop : target}, 300)
+          regularScroll=false;
 
-      //   }
-      //   if(rettop && regularScroll){
-      //     // $this.stop().scrollTo(settings.current, 300)
-      //     settings.callback($this,settings.current, 300)
-      //     regularScroll=false;
-      //   }
+        }
+        if(rettop && regularScroll){
+          // $this.stop().scrollTo(settings.current, 300)
+          settings.callback($this,settings.current, 300)
+          regularScroll=false;
+        }
        
       
-      // })
+      })
       
-      // $this.bind('touchend', function(touch){
-      //   okToSwipe = true;
-      // })
+      $this.bind('touchend', function(touch){
+        okToSwipe = true;
+      })
       
 
 

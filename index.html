@@ -25,42 +25,38 @@
 
 
       }
-
-      #wrapper {
-          position:relative;
-          z-index:1;
-          width:100%;
-          height:100%;
-          overflow:hidden;
-      }
-
       #swipeContainer {
-        height:2200px;
-        overflow:auto;
-        /*overflow: scroll;*/
-        /*-webkit-overflow-scrolling: touch;*/
+        height:100%;
+        
+
+        overflow:hidden;
+
       }
 
       .swipeSection{
-        position:relative;
+        /*position:relative;*/
         font-size: 30px;
         text-align: center;
-        height:100%;
-        /*overflow:auto;*/
+        
+        /*mobile*/
+        max-height:100%;
+        overflow:auto;
+        overflow: scroll;
+        -webkit-overflow-scrolling: touch;        
       }
 
       #one {
-        height:800px;
+        height:100%;
       }
-      #two {
-        height:3000px;
+      #two > div{
+        height:2000px;
       }
 
       #three {
-        height:400px;
+        height:50%;
       }
       #four {
-        height:200px;
+        height:100%;
       }
       #five {
         height:auto;
@@ -78,45 +74,41 @@
 
 
   <body>
-  <div id="wrapper">
 
     <div id="swipeContainer">
 
-    <ul style='height:100%'>
-      <li id="one" class="swipeSection">
+      <div id="one" class="swipeSection">
         <div>
           100% height div
         </div>
-      </li>
+      </div>
 
-      <li id="two" class="swipeSection">
+      <div id="two" class="swipeSection">
         <div>
         200% height div
         </div>
-      </li>
+      </div>
 
-      <li id="three" class="swipeSection">
+      <div id="three" class="swipeSection">
         <div>
         50% height div
         </div>
-      </li>
+      </div>
 
-      <li id="four" class="swipeSection">
+      <div id="four" class="swipeSection">
         <div>
         100% height div
         </div>
-      </li>
+      </div>
 
-      <li id="five" class="swipeSection">
+      <div id="five" class="swipeSection">
         <div>
         auto height div
         </div>
-      </li>
-    </ul?
+      </div>
 
     </div>
 
-  </div>
   </body>
 
 
