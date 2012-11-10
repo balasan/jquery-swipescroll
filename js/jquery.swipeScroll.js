@@ -201,18 +201,20 @@ function handler(event) {
       };
 
 
-      if(isMobile.any || settings.hideScrollbar){
+      if(isMobile.any() || settings.hideScrollbar){
 
         $this.css({overflow:'hidden'})
         $(settings.selector).css({'max-height':'100%'
-                                  ,'overflow-x':'scroll'
+                                  ,'overflow-x':'auto'
                                   ,'webkitOverflowScrolling':'touch'
-                                  }).each(function(){
-
-                                    var extra = $(window).width()-$(this).width()
-                                    $(this).width( $(this).width + extra)
-
                                   })
+
+                                  // .each(function(){
+
+                                  //   var extra = $(window).width()-$(this).width()
+                                  //   $(this).width( $(this).width + extra)
+
+                                  // })
 
       }
 
