@@ -319,11 +319,12 @@ function handler(event) {
               settings.callback($this, settings.current) 
               rettop=false;
               ret=false;  
-              regularScroll=false;
               okToSwipe = false;
 
  
             }
+            regularScroll=false;
+
           }
           else
             if(!$(settings.current).height()>wh)
@@ -340,10 +341,10 @@ function handler(event) {
               settings.callback($this, settings.current)      
               rettop=false;
               ret=false; 
-              regularScroll=false;
               okToSwipe = false;
 
             }
+            regularScroll=false;
           }
           else
             if(!$(settings.current).height()>wh)
